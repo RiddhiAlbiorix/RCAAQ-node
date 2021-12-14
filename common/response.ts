@@ -4,7 +4,7 @@
 //     status:""
 // }
 // export  {response}
-import * as resp from "./constant";
+// import * as resp from "./constant";
 
 export const response = (res: any, message: String, err: any, status: Number) => {
     res.status(status).send({

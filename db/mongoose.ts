@@ -12,7 +12,6 @@ const option = {
 };
 
 const connectWithRetry = () => {
-  // console.log('MongoDB connection with retry',String)
   mongoose.connect("mongodb://localhost/rcaaq", option).then(() => {
     console.log(colors.green('MongoDB is connected'))
   }).catch(err => {
@@ -21,16 +20,6 @@ const connectWithRetry = () => {
   })
 }
 
-// mongoose.connect(String(mongoDb), option)
-// mongoose.connection.on("open", function() {
-//   console.log("Connection has been established");
-// });
-
-// mongoose.connection.on("error", function(error) {
-//   console.log(error);
-
-//   console.log("Error in conecting mongo server");
-// });
 connectWithRetry()
 
 export { mongoose };

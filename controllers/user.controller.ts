@@ -3,16 +3,17 @@ import { User } from '../models/user.model';
 import { response, errorHandle } from "../common/response";
 
 exports.login = async (req: Request, res: Response) => {
-  console.log(req, "req")
   try {
     const userexits = await User.find({ email: req.body.email });
-    console.log("Usere", userexits);
     if (userexits.length > 0) {
       const { email, password } = req.body;
       const user = await User.findByCredentials(email, password);
       const token = await user.generateAuthToken(user);
-      return res.send({ user, token });
-
+      return res.send({
+        data: { user, token },
+        message: "user loggedIn successFully",
+        error: false
+      });
     }
     var user = new User(req.body);
     const token = await user.generateAuthToken(user);
@@ -23,14 +24,16 @@ exports.login = async (req: Request, res: Response) => {
       error: false
     });
   }
-  catch (err) {
-    // console.log(err, "Errorrr");
-    // let msg: any = errorHandle(err);
-    // if (err.errors && err.name == "ValidationError") {
-    //   response(res, msg, err, 422);
-    // }
-    // else {
-    //   response(res, 'Something went wrong in creating user', err, 500);
-    // }
+  catch (err: any) {
+    let msg: any = errorHandle(err);
+    if (err && err.name == 'Error') {
+      response(res, err.message, err, 401);
+    }
+    else if (err.errors && err.name == "ValidationError") {
+      response(res, msg, err, 422);
+    }
+    else {
+      response(res, 'Something went wrong in login', err, 500);
+    }
   }
 };

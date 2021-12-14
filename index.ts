@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import { UserRoutes } from "./routes/user.route";
+// import { TeamMemberRoutes } from "./routes/teamMember.route";
 
 // const data = require('./middleware/seed');
 const app = express();
@@ -28,12 +29,12 @@ app.use((error: { field: any; }, req: any, res: any, next: any) => {
 
 //ALL ROUTES GOES HERE
 app.use("/api", UserRoutes);
+// app.use("/api", TeamMemberRoutes);
 
 app.get('/test', function (req, res) {
   res.json(true);
 });
 
 app.listen(port, () => {
-  // console.log(`Server started at ${port}`);
   console.log(colors.inverse(`Server started at ${port}`));
 });
