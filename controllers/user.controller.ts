@@ -8,11 +8,11 @@ exports.login = async (req: Request, res: Response) => {
     const userexits = await User.find({ email: req.body.email });
     console.log("Usere", userexits);
     if (userexits.length > 0) {
-      return res.status(422).send({
-        data: {},
-        message: "User already exists",
-        error: false
-      });
+      const { email, password } = req.body;
+      const user = await User.findByCredentials(email, password);
+      const token = await user.generateAuthToken(user);
+      return res.send({ user, token });
+
     }
     var user = new User(req.body);
     const token = await user.generateAuthToken(user);
