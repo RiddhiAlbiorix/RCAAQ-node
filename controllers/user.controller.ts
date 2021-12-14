@@ -27,7 +27,7 @@ exports.login = async (req: Request, res: Response) => {
   catch (err: any) {
     let msg: any = errorHandle(err);
     if (err && err.name == 'Error') {
-      response(res, err.message, err, 401);
+      response(res, err.message, err, 400);
     }
     else if (err.errors && err.name == "ValidationError") {
       response(res, msg, err, 422);
