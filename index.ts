@@ -6,7 +6,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import { UserRoutes } from "./routes/user.route";
-import { TeamMeetingsRoutes } from "./routes/teamMeetings.route";
+import { TeamMeetingRoutes } from "./routes/teamMeeting.route";
 
 // const data = require('./middleware/seed');
 const app = express();
@@ -29,7 +29,7 @@ app.use((error: { field: any; }, req: any, res: any, next: any) => {
 
 //ALL ROUTES GOES HERE
 app.use("/api", UserRoutes);
-app.use("/api", TeamMeetingsRoutes);
+app.use("/api", TeamMeetingRoutes);
 
 app.get('/test', function (req, res) {
   res.json(true);

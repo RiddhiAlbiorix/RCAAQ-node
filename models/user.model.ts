@@ -1,5 +1,5 @@
 import { mongoose } from "../db/mongoose";
-import { Document, Model, model, Types, Schema, Query } from "mongoose";
+import { Model } from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import endpoint from '../config/config';

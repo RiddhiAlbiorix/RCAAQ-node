@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-import { TeamMeetings } from '../models/teamMeetings.model';
+import { TeamMeeting } from '../models/teamMeeting.model';
 import { response, errorHandle } from "../common/response";
 
 exports.create = async (req: Request, res: Response) => {
   try {
-    var teamMeetings = new TeamMeetings(req.body)
-    await teamMeetings.save()
+    var teamMeeting = new TeamMeeting(req.body)
+    await teamMeeting.save()
     return res.status(200).send({
-      data: { teamMeetings },
+      data: { teamMeeting },
       message: "TeamMeeting report created successfully",
       error: false
     })
@@ -19,7 +19,7 @@ exports.create = async (req: Request, res: Response) => {
         response(res, msg, err, 422);
       }
       else {
-        response(res, "Something went wrong in creating quote", err, 500);
+        response(res, "Something went wrong in creating meeting report", err, 500);
       }
     }
   }
