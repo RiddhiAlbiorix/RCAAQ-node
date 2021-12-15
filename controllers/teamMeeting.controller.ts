@@ -24,3 +24,16 @@ exports.create = async (req: Request, res: Response) => {
     }
   }
 }
+
+exports.getTeamMeeting = async (req: Request, res: Response) => {
+  try {
+    const teamMeeting = await TeamMeeting.find();
+    res.status(200).send({
+      data: { teamMeeting },
+      message: "TeamMeeting report fetched successfully",
+      error: false
+    });
+  } catch (err) {
+    response(res, 'Something went wrong in fetching unit', err, 500);
+  }
+}

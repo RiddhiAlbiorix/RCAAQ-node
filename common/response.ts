@@ -1,10 +1,3 @@
-// let response = {
-//     message:"",
-//     error:"",
-//     status:""
-// }
-// export  {response}
-// import * as resp from "./constant";
 
 export const response = (res: any, message: String, err: any, status: Number) => {
     res.status(status).send({
@@ -30,33 +23,3 @@ export const errorHandle = (err: any) => {
         }
     }
 }
-
-// export function internalServerError(error: any)
-// {
-//     let responseObj = {
-//         code: resp.httpStatusCode.internalServerError,
-//         message: resp.responseMessage.internalServerError,
-//         error:error
-//     }
-//     return responseObj
-// }
-
-// export function notFound()
-// {
-//     let responseObj = {
-//         code: resp.httpStatusCode.notFound,
-//         message: resp.responseMessage.notFound,
-//         data:{}
-//     }
-//     return responseObj
-// }
-
-// export function sucess(data:any)
-// {
-//     let responseObj = {
-//         code: resp.httpStatusCode.success,
-//         message: resp.responseMessage.sucess,
-//         data:data
-//     }
-//     return responseObj
-// }

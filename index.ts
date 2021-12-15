@@ -8,7 +8,6 @@ dotenv.config();
 import { UserRoutes } from "./routes/user.route";
 import { TeamMeetingRoutes } from "./routes/teamMeeting.route";
 
-// const data = require('./middleware/seed');
 const app = express();
 app.use(cors());
 
@@ -24,8 +23,6 @@ const port = 8080;
 app.use((error: { field: any; }, req: any, res: any, next: any) => {
   console.log('This is the rejected field ->', error.field);
 });
-
-// app.use('/uploads', express.static('uploads'));
 
 //ALL ROUTES GOES HERE
 app.use("/api", UserRoutes);

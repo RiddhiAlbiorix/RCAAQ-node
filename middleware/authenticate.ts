@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
-import { Request, Response, NextFunction } from 'express';
-
+import { Response, NextFunction } from 'express';
 
 import { User } from '../models/user.model';
 import endpoint from '../config/config';
@@ -17,8 +16,6 @@ const authenticate = async (req: any, res: Response, next: NextFunction) => {
     if (!user) {
       throw new Error("Unauthorized user");
     }
-    // req.user = user;
-    // req.token = token;
     next();
   } catch (err) {
     console.log(err);
