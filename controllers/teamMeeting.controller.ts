@@ -13,14 +13,12 @@ exports.create = async (req: Request, res: Response) => {
     })
   }
   catch (err: any) {
-    {
-      let msg: any = errorHandle(err);
-      if (err.errors && err.name == "ValidationError") {
-        response(res, msg, err, 422);
-      }
-      else {
-        response(res, "Something went wrong in creating meeting report", err, 500);
-      }
+    let msg: any = errorHandle(err);
+    if (err.errors && err.name == "ValidationError") {
+      response(res, msg, err, 422);
+    }
+    else {
+      response(res, "Something went wrong in creating meeting report", err, 500);
     }
   }
 }
