@@ -51,5 +51,6 @@ var teamMeetingSchema = new mongoose.Schema(
     timestamps: true
   }
 );
+
 var TeamMeeting = mongoose.model<any>("TeamMeeting", teamMeetingSchema);
 export { TeamMeeting }

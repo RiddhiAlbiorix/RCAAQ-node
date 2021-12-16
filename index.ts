@@ -7,6 +7,7 @@ dotenv.config();
 
 import { UserRoutes } from "./routes/user.route";
 import { TeamMeetingRoutes } from "./routes/teamMeeting.route";
+import { ManagementRoutes } from "./routes/management.route";
 
 const app = express();
 app.use(cors());
@@ -27,6 +28,7 @@ app.use((error: { field: any; }, req: any, res: any, next: any) => {
 //ALL ROUTES GOES HERE
 app.use("/api", UserRoutes);
 app.use("/api", TeamMeetingRoutes);
+app.use("/api", ManagementRoutes);
 
 app.get('/test', function (req, res) {
   res.json(true);
