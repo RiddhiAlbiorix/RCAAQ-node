@@ -40,3 +40,22 @@ exports.getLivingEnvironment = async (req: Request, res: Response) => {
     }
   }
 }
+
+exports.getLivingEnvironmentById = async (req: Request, res: Response) => {
+  try {
+    const livingEnvironment = await LivingEnvironment.findById({ _id: req.params.id });
+    res.status(200).send({
+      data: { livingEnvironment },
+      message: "Living Environments report fetched successfully",
+      error: false
+    });
+  } catch (err: any) {
+    let msg: any = errorHandle(err);
+    if (err.errors && err.name == "ValidationError") {
+      response(res, msg, err, 422);
+    }
+    else {
+      response(res, 'Something went wrong', err, 500);
+    }
+  }
+}

@@ -6,5 +6,6 @@ const livingEnvironmentController = require('../controllers/livingEnvironment.co
 
 router.post("/livingEnvironment/create", authenticate, livingEnvironmentController.create);
 router.get("/livingEnvironment", authenticate, livingEnvironmentController.getLivingEnvironment);
+router.get("/livingEnvironment/:id", authenticate, livingEnvironmentController.getLivingEnvironmentById);
 
 export { router as LivingEnvironmentRoutes };
