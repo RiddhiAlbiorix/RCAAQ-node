@@ -18,7 +18,7 @@ exports.create = async (req: Request, res: Response) => {
       response(res, msg, err, 422);
     }
     else {
-      response(res, "Something went wrong in creating meeting report", err, 500);
+      response(res, "Something went wrong", err, 500);
     }
   }
 }

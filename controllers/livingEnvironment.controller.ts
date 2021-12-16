@@ -17,7 +17,26 @@ exports.create = async (req: Request, res: Response) => {
       response(res, msg, err, 422);
     }
     else {
-      response(res, "Something went wrong in creating meeting report", err, 500);
+      response(res, "Something went wrong", err, 500);
+    }
+  }
+}
+
+exports.getLivingEnvironment = async (req: Request, res: Response) => {
+  try {
+    const livingEnvironment = await LivingEnvironment.find();
+    res.status(200).send({
+      data: { livingEnvironment },
+      message: "Living Environments report fetched successfully",
+      error: false
+    });
+  } catch (err: any) {
+    let msg: any = errorHandle(err);
+    if (err.errors && err.name == "ValidationError") {
+      response(res, msg, err, 422);
+    }
+    else {
+      response(res, 'Something went wrong', err, 500);
     }
   }
 }
