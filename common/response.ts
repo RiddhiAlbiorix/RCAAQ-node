@@ -14,7 +14,6 @@ export const errorHandle = (err: any) => {
             let errors = Object.values(err.errors).map((el: any) => el.message);
             if (errors.length > 1) {
                 const formattedErrors = errors.join(' ');
-                console.log("formattedErrors", formattedErrors);
                 return formattedErrors
             }
             else {
