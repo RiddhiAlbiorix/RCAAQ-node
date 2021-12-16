@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "ONGC"
+  },
+  {
+    "id": 2,
+    "name": "LIC"
+  },
+  {
+    "id": 3,
+    "name": "TATA"
+  },
+  {
+    "id": 4,
+    "name": "MCI"
+  },
+  {
+    "id": 5,
+    "name": "NCERT"
+  },
+  {
+    "id": 6,
+    "name": "CSO"
+  }
+]

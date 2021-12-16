@@ -1,5 +1,6 @@
 import { mongoose } from "../db/mongoose";
 
+// Duration schema
 const durationSchema = new mongoose.Schema(
   {
     id: {
@@ -14,4 +15,22 @@ const durationSchema = new mongoose.Schema(
   }
 )
 const Duration = mongoose.model<any>("duration", durationSchema)
-export { Duration };
+
+// Organization schema
+const organizationSchema = new mongoose.Schema(
+  {
+    id: {
+      type: Number
+    },
+    name: {
+      type: String
+    }
+  },
+  {
+    timestamps: true
+  }
+)
+const Organization = mongoose.model<any>("organization", organizationSchema)
+
+export { Duration, Organization };
+
