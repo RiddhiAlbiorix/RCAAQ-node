@@ -32,5 +32,22 @@ const organizationSchema = new mongoose.Schema(
 )
 const Organization = mongoose.model<any>("organization", organizationSchema)
 
-export { Duration, Organization };
+
+// Environments schema
+const environmentSchema = new mongoose.Schema(
+  {
+    id: {
+      type: Number
+    },
+    name: {
+      type: String
+    }
+  },
+  {
+    timestamps: true
+  }
+)
+const Environment = mongoose.model<any>("environment", environmentSchema)
+
+export { Duration, Organization, Environment };
 

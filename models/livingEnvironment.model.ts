@@ -6,8 +6,8 @@ const LivingEnvironmentSchema = new mongoose.Schema(
       type: Date,
       required: true
     },
-    duration: {
-      type: String,
+    livingEnvironment: {
+      type: Number,
       required: true
     },
     journeyCourse: {
@@ -40,7 +40,10 @@ const LivingEnvironmentSchema = new mongoose.Schema(
           required: true
         }
       }
-    ]
+    ],
+    totalMembers: {
+      type: Number
+    }
   },
   {
     timestamps: true

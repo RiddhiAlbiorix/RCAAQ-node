@@ -25,6 +25,10 @@ exports.create = async (req: Request, res: Response) => {
 exports.getLivingEnvironment = async (req: Request, res: Response) => {
   try {
     const livingEnvironment = await LivingEnvironment.find();
+    console.log(livingEnvironment, "livingEnvironment")
+    livingEnvironment.map((item) => {
+      item.totalMembers = item.members.length + item.nonMembers.length
+    })
     res.status(200).send({
       data: { livingEnvironment },
       message: "Living Environments report fetched successfully",
