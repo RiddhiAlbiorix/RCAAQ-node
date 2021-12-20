@@ -10,6 +10,7 @@ import { TeamMeetingRoutes } from "./routes/teamMeeting.route";
 import { ManagementRoutes } from "./routes/management.route";
 import { LivingEnvironmentRoutes } from "./routes/livingEnvironment.route";
 import { SubMemberRoutes } from "./routes/subMember.route";
+import { Activity } from './routes/activity.route';
 
 const app = express();
 app.use(cors());
@@ -33,6 +34,7 @@ app.use("/api", TeamMeetingRoutes);
 app.use("/api", ManagementRoutes);
 app.use("/api", LivingEnvironmentRoutes);
 app.use("/api", SubMemberRoutes);
+app.use("/api", Activity);
 
 app.get('/test', function (req, res) {
   res.json(true);
