@@ -34,7 +34,7 @@ var memberSchema = new mongoose.Schema(
       type: String,
       required: true
     },
-    appartment: {
+    apartment: {
       type: String,
       required: true
     },
